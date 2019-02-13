@@ -11,6 +11,7 @@
 #include "qlearning.h"
 #include "draw_env.h"
 #include "common_def.h"
+#include "qlearningImpl.cu"
 
 extern void agent_init();
 extern void agent_clearaction();

@@ -19,6 +19,7 @@ main_qlearning.cu
 draw_env.cu
 qlearning.cu
 env_mine.cu
+qlearningImpl.cu
 OPTIONS --cudart=shared  -lineinfo -arch sm_52 -use_fast_math
 DEBUG -Xptxas -v -g -G 
 )
