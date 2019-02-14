@@ -6,8 +6,6 @@
 /*************************************************************************/
 #include <curand.h>
 #include <curand_kernel.h>
-#include <helper_cuda.h>
-#include <helper_functions.h>
 #include <stdlib.h>
 #include "draw_env.h"
 #include "agent.h"
@@ -22,11 +20,11 @@ const Agent* agents;
 
 // Implementation of Agent
 void Agent::qtable_init(int table_size, int num_actions) {
-	this->m_h_qtable = new int**[table_size];
+	this->m_h_qtable = new float**[table_size];
 	for (int i = 0; i < table_size; ++i) {
-		this->m_h_qtable[i] = new int*[table_size];
+		this->m_h_qtable[i] = new float*[table_size];
 		for (int j = 0; j < num_actions; ++j) {
-			this->m_h_qtable[i][j] = new int[num_actions];
+			this->m_h_qtable[i][j] = new float[num_actions];
 			memset(this->m_h_qtable[i][j], 0, num_actions);
 		}
 	}
@@ -64,8 +62,8 @@ void agent_clearaction() {
 }
 
 float agent_adjustepsilon() {
-	agents.m_epsilon -= 0.01f;
-	return agents.m_epsilon;
+	agents->m_epsilon -= 0.01f;
+	return agents->m_epsilon;
 }
 
 short* agent_action(int2* cstate) {

@@ -9,18 +9,15 @@
 extern const int TABLE_SIZE;
 extern const int NUM_ACTIONS;
 
-enum Actions {
+enum Action {
+	RIGHT = 0,
+	BOTTOM = 1,
+	LEFT = 2,
+	TOP = 3
 };
 
 struct Agent
 {
-	enum Action {
-		RIGHT = 0,
-		BOTTOM = 1,
-		LEFT = 2,
-		TOP = 3
-	};
-
 	~Agent() {
 		if (m_h_qtable) {
 			for (int i = 0; i < table_size; ++i) {
@@ -43,7 +40,7 @@ struct Agent
 	}
 	
 	Agent(int s = TABLE_SIZE, int n = NUM_ACTIONS):table_size(s),num_actions(n) {
-		learningRate = 0.1;
+		this->learningRate = 0.1f;
 		resetAction();
 		epsilon_init();
 		qtable_init(table_size, num_actions);
@@ -63,6 +60,6 @@ struct Agent
 	float*** m_h_qtable;
 	int m_action;
 	int table_size;
-	int num_actions
+	int num_actions;
 	float learningRate;
 };
