@@ -14,6 +14,7 @@
         fprintf(stderr, "Error: %s:%d, ", __FILE__, __LINE__);                 \
         fprintf(stderr, "code: %d, reason: %s\n", error,                       \
                 cudaGetErrorString(error));                                    \
+		system("pause");													   \
         exit(1);                                                               \
     }                                                                          \
 }
@@ -29,21 +30,18 @@ enum Action {
 // global Q table
 // logically it is a 3d matrix
 // each cell (x,y,action) represents Q(s, action)
-float* h_qtable;
+extern __device__ float* d_qtable;
 
 // Each agent needs to keep track of its own:
 // 1. action
 // 2. if it is alive (represented using value -1)
 // this data structure is structure of arrays
-int *h_action;
-
-// epsilon
-__device__ float epsilon = 1.0;
-
-// qLearning Paramters
-__device__ float learningRate = 0.2;		// discount factor
-__device__ float gradientDec = 0.1;		// learning Rate alpha
+extern __device__ int *d_action;
 
 // functions to init agents data structure
-//__global__ void agentsInit(int* d_agentsActions);
-//__global__ void qtableInit(float* d_qtable, int size);
+__global__ void agentsInit(int *d_agentsActions, int size);
+__global__ void qtableInit(float *d_qtable, int size);
+__global__ void agentsUpdate(int2* cstate, int2* nstate, float *rewards);
+__global__ void updateEpsilon();
+void initGlobalVariables();
+float decEpsilon();
