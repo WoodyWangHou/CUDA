@@ -19,6 +19,8 @@
     }                                                                          \
 }
 
+#define DIMENSION 4
+
 enum Action {
 	DEAD = -1,
 	RIGHT = 0,
@@ -36,12 +38,11 @@ extern __device__ float* d_qtable;
 // 1. action
 // 2. if it is alive (represented using value -1)
 // this data structure is structure of arrays
-extern __device__ int *d_action;
+extern __device__ short *d_action;
 
 // functions to init agents data structure
-__global__ void agentsInit(int *d_agentsActions, int size);
-__global__ void qtableInit(float *d_qtable, int size);
-__global__ void agentsUpdate(int2* cstate, int2* nstate, float *rewards);
-__global__ void updateEpsilon();
 void initGlobalVariables();
 float decEpsilon();
+void initAgents();
+void initQTable();
+void updateActions(int2* cstate);

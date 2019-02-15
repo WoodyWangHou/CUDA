@@ -10,8 +10,6 @@
 #include "qlearningImpl.h"
 #include "common_def.h"
 
-#define DIMENSION 4
-
 // Implemetation of required functions
 void agent_init() {
 	// update global variable
@@ -24,20 +22,12 @@ void agent_init() {
 	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
 	CHECK(cudaMalloc((void **)&d_qtable, qtableMemSize));
 
-	// to be updated for multi-agent
-	dim3 block(1,1,1);
-	dim3 grid(1,1,1);
-
-	agentsInit <<<grid, block>>> (d_action, NUM_AGENT);
-	qtableInit <<<grid, block>>> (d_qtable, DIMENSION * DIMENSION * NUM_ACTIONS);
-
-	cudaDeviceSynchronize();
+	initAgents();
+	initQTable();
 }
 
 void agent_clearaction() {
-	dim3 block(1, 1, 1);
-	dim3 grid(1, 1, 1);
-	agentsInit <<<grid, block>>> (d_action, NUM_AGENT);
+	initAgents();
 }
 
 float agent_adjustepsilon() {
@@ -47,7 +37,8 @@ float agent_adjustepsilon() {
 // the pointer is pointing to memory in GPU
 // need to return pointer to memory in GPU
 short* agent_action(int2* cstate) {
-	return &ans;
+	updateActions(cstate);
+	return d_action;
 }
 
 void agent_update(int2* cstate, int2* nstate, float *rewards) {
