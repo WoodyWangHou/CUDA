@@ -6,60 +6,44 @@
 
 #pragma once
 
-extern const int TABLE_SIZE;
-extern const int NUM_ACTIONS;
+#define CHECK(call)                                                            \
+{                                                                              \
+    const cudaError_t error = call;                                            \
+    if (error != cudaSuccess)                                                  \
+    {                                                                          \
+        fprintf(stderr, "Error: %s:%d, ", __FILE__, __LINE__);                 \
+        fprintf(stderr, "code: %d, reason: %s\n", error,                       \
+                cudaGetErrorString(error));                                    \
+        exit(1);                                                               \
+    }                                                                          \
+}
 
 enum Action {
+	DEAD = -1,
 	RIGHT = 0,
 	BOTTOM = 1,
 	LEFT = 2,
 	TOP = 3
 };
 
-struct Agent
-{
-	~Agent() {
-		if (m_h_qtable) {
-			for (int i = 0; i < table_size; ++i) {
-				if (m_h_qtable[i]) {
-					for (int j = 0; j < table_size; ++j) {
-						if (m_h_qtable[i][j]) {
-							delete m_h_qtable[i][j];
-							m_h_qtable[i][j] = nullptr;
-						}
-					}
+// global Q table
+// logically it is a 3d matrix
+// each cell (x,y,action) represents Q(s, action)
+float* h_qtable;
 
-					delete m_h_qtable[i];
-					m_h_qtable[i] = nullptr;
-				}
-			}
+// Each agent needs to keep track of its own:
+// 1. action
+// 2. if it is alive (represented using value -1)
+// this data structure is structure of arrays
+int *h_action;
 
-			delete m_h_qtable;
-			m_h_qtable = nullptr;
-		}
-	}
-	
-	Agent(int s = TABLE_SIZE, int n = NUM_ACTIONS):table_size(s),num_actions(n) {
-		this->learningRate = 0.1f;
-		resetAction();
-		epsilon_init();
-		qtable_init(table_size, num_actions);
-	}
+// epsilon
+__device__ float epsilon = 1.0;
 
-	void qtable_init(int table_size = TABLE_SIZE, int num_actions = NUM_ACTIONS);
-	void epsilon_init() {
-		this->m_epsilon = 1.0f;
-	}
-	
-	void resetAction() {
-		this->m_action = -1;
-	}
-	short getMaxQActionVal(int2* state);
+// qLearning Paramters
+__device__ float learningRate = 0.2;		// discount factor
+__device__ float gradientDec = 0.1;		// learning Rate alpha
 
-	float m_epsilon;
-	float*** m_h_qtable;
-	int m_action;
-	int table_size;
-	int num_actions;
-	float learningRate;
-};
+// functions to init agents data structure
+//__global__ void agentsInit(int* d_agentsActions);
+//__global__ void qtableInit(float* d_qtable, int size);

@@ -4,87 +4,89 @@
 /* Copyright 2019
 /* University of California, San Diego
 /*************************************************************************/
-#include <curand.h>
-#include <curand_kernel.h>
+#include <cuda_runtime.h>
+#include <helper_cuda.h>
 #include <stdlib.h>
 #include "draw_env.h"
 #include "agent.h"
 #include "common_def.h"
 
-const int TABLE_SIZE = 4;
-const int NUM_ACTIONS = 4;
+#define DIMENSION 4
+#define NUM_ACTIONS 4
+#define NUM_AGENTS 1
 
-// define number of agents 
-const int NUM_AGENTS = 1;
-const Agent* agents;
+int actionMemSize = 0;
+int qtableMemSize = 0;
 
-// Implementation of Agent
-void Agent::qtable_init(int table_size, int num_actions) {
-	this->m_h_qtable = new float**[table_size];
-	for (int i = 0; i < table_size; ++i) {
-		this->m_h_qtable[i] = new float*[table_size];
-		for (int j = 0; j < num_actions; ++j) {
-			this->m_h_qtable[i][j] = new float[num_actions];
-			memset(this->m_h_qtable[i][j], 0, num_actions);
-		}
+// TODO: implement the following
+
+__global__ void agentsInit(int *d_agentsActions) {
+	d_agentsActions[0] = 0;
+}
+__global__ void qtableInit(float *d_qtable, int size) {
+	for (int i = 0; i < size; ++i) {
+		d_qtable[i] = 0;
 	}
 }
 
-short Agent::getMaxQActionVal(int2* state) {
-	int x = state->x;
-	int y = state->y;
+__global__ void resetAgents(int* d_agentsActions) {
+}
+__global__ void agentsUpdate(int2* cstate, int2* nstate, float *rewards) {
+}
 
-	short cand = RIGHT;
-	for (int i = RIGHT; i <= TOP; ++i) {
-		if (y == table_size - 1 && i == BOTTOM) continue;
-		if (y == 0 && i == TOP) continue;
-		if (x == table_size - 1 && i == RIGHT) {
-			++cand;
-			continue;
-		}
-		if (x == 0 && i == LEFT) continue;
-
-		cand = this->m_h_qtable[y][x][cand] >= this->m_h_qtable[y][x][i] ? cand : i;
-	}
-
-	return cand;
+__global__ void updateEpsilon() {
+	epsilon -= 0.1f;
 }
 
 // Implemetation of required functions
 void agent_init() {
-	if (!agents) {
-		agents = new Agent;
-	}
+
+	// init host data
+	actionMemSize = NUM_AGENTS * sizeof(int);
+	h_action = (int *)malloc(actionMemSize);
+	qtableMemSize = DIMENSION * DIMENSION * NUM_ACTIONS * sizeof(float);
+	h_qtable = (float *)malloc(qtableMemSize);
+
+	// allocate memory for cuda
+	int* d_action;
+	float* d_qtable;
+
+	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
+	CHECK(cudaMalloc((void **)&d_qtable, qtableMemSize));
+	CHECK(cudaMemcpy(d_action, h_action, actionMemSize, cudaMemcpyHostToDevice));
+	CHECK(cudaMemcpy(d_qtable, h_qtable, qtableMemSize, cudaMemcpyHostToDevice));
+
+	// to be updated for multi-agent
+	dim3 block(1,1,1);
+	dim3 grid(1,1,1);
+
+	agentsInit <<<block, grid >>> (d_action);
+	qtableInit <<<block, grid >>> (d_qtable, DIMENSION * DIMENSION * NUM_ACTIONS);
+
+	// copy back
+	CHECK(cudaMemcpy(h_action, d_action, actionMemSize, cudaMemcpyDeviceToHost));
+	CHECK(cudaMemcpy(h_qtable, d_qtable, qtableMemSize, cudaMemcpyDeviceToHost));
+	cudaDeviceSynchronize();
+
+	cudaFree(d_action);
+	cudaFree(d_qtable);
 }
 
 void agent_clearaction() {
-	agents->resetAction();
+	
 }
 
 float agent_adjustepsilon() {
-	agents->m_epsilon -= 0.01f;
-	return agents->m_epsilon;
+	updateEpsilon<<<1,1>>>();
+	float *h_epsilon = (float *)malloc(sizeof(float));
+	CHECK(cudaMemcpy(h_epsilon, &epsilon, sizeof(float), cudaMemcpyDeviceToHost));
+	return *h_epsilon;
 }
 
 short* agent_action(int2* cstate) {
-	float seed = (float)(rand() % 100) / 100.0f;
-	short ans = RIGHT;
-
-	if (seed < agents->m_epsilon) {
-		ans = rand() % 4;
-	}
-	else {
-		short ans = agents->getMaxQActionVal(cstate);
-	}
-
-	agents->m_action = ans;
-
+	short ans = 0;
 	return &ans;
 }
 
 void agent_update(int2* cstate, int2* nstate, float *rewards) {
-	float alpha = 0.5;
-	float delta = agents->getMaxQActionVal(nstate);
-	float curVal = agents->m_h_qtable[cstate->y][cstate->x][agents->m_action];
-	agents->m_h_qtable[cstate->y][cstate->x][agents->m_action] = curVal + alpha * (*(rewards) + agents->learningRate * delta - curVal);
 }
