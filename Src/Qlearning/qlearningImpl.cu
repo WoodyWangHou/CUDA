@@ -14,14 +14,6 @@
 void agent_init() {
 	// update global variable
 	initGlobalVariables();
-
-	// init qtable, agent action states
-	int actionMemSize = NUM_AGENT * sizeof(int);
-	int qtableMemSize = DIMENSION * DIMENSION * NUM_ACTIONS * sizeof(float);
-
-	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
-	CHECK(cudaMalloc((void **)&d_qtable, qtableMemSize));
-
 	initAgents();
 	initQTable();
 }
@@ -37,10 +29,10 @@ float agent_adjustepsilon() {
 // the pointer is pointing to memory in GPU
 // need to return pointer to memory in GPU
 short* agent_action(int2* cstate) {
-	updateActions(cstate);
+	takeAction(cstate);
 	return d_action;
 }
 
 void agent_update(int2* cstate, int2* nstate, float *rewards) {
-
+	updateAgents(cstate,nstate,rewards);
 }

@@ -5,7 +5,6 @@
 */
 
 #pragma once
-
 #define CHECK(call)                                                            \
 {                                                                              \
     const cudaError_t error = call;                                            \
@@ -22,7 +21,6 @@
 #define DIMENSION 4
 
 enum Action {
-	DEAD = -1,
 	RIGHT = 0,
 	BOTTOM = 1,
 	LEFT = 2,
@@ -45,4 +43,5 @@ void initGlobalVariables();
 float decEpsilon();
 void initAgents();
 void initQTable();
-void updateActions(int2* cstate);
+void takeAction(int2* cstate);
+void updateAgents(int2* cstate, int2* nstate, float *rewards);

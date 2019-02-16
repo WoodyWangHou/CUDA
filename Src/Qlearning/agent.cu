@@ -1,16 +1,18 @@
-/*************************************************************************
+﻿/*************************************************************************
 /* ECE 285: GPU Programmming 2019 Winter quarter
 /* Author and Instructer: Cheolhong An
 /* Copyright 2019
 /* University of California, San Diego
 /*************************************************************************/
 #include <cuda_runtime.h>
-#include <helper_cuda.h>
+#include <curand.h>
+#include <curand_kernel.h>
+#include <stdio.h>
 #include "agent.h"
 #include "common_def.h"
 
 __device__ float *d_qtable;
-__device__ short   *d_action;
+__device__ short *d_action;
 
 // epsilon
 __device__ float epsilon;
@@ -19,8 +21,14 @@ __device__ float epsilon;
 __device__ float learningRate;		// discount factor
 __device__ float gradientDec;		// learning Rate alpha
 
-// TODO: implement the following
+// Helpers:
+__global__ void setup_kernel(curandState *state) {
 
+	int idx = threadIdx.x + blockDim.x*blockIdx.x;
+	curand_init(1234, idx, 0, &state[idx]);
+}
+// TODO: implement the following
+// Implementation:
 __global__ void agentsInit(short *d_agentsActions, int size) {
 	for (int i = 0; i < size; ++i) {
 		d_agentsActions[i] = 0;
@@ -33,21 +41,71 @@ __global__ void qtableInit(float *d_qtable, int size) {
 	}
 }
 
-__global__ void actionsUpdate(int2* cstate, short *d_agentsActions, int size) {
+__global__ void actionTaken(int2* cstate, short *d_action, float *d_qtable, curandState *state) {
+	int idx = threadIdx.x + blockDim.x*blockIdx.x;
+
+	int x = cstate[idx].x;
+	int y = cstate[idx].y;
+	short cand = RIGHT;
+	// gama greedy strategy:
+	float seed = curand_uniform(state + idx);
+
+	if (seed < epsilon) {
+		float actionSeed = curand_uniform(state + idx) * 4;
+		cand = (short)actionSeed;
+	} else {
+		for (short i = RIGHT; i <= TOP; ++i) {
+			if (x == 0 && i == LEFT) continue;
+			if (x == DIMENSION - 1 && i == RIGHT) continue;
+			if (y == 0 && i == TOP) continue;
+			if (y == DIMENSION - 1 && i == BOTTOM) continue;
+
+			int tableIdx = i * (DIMENSION * DIMENSION) + y * DIMENSION + x;
+			cand = d_qtable[tableIdx] > d_qtable[tableIdx] ? i : cand;
+		}
+	}
+	d_action[idx] = cand;
 }
 
-__global__ void agentsUpdate(int2* cstate, int2* nstate, float *rewards) {
+__global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *d_action, float *d_qtable) {
+	int idx = threadIdx.x + blockDim.x*blockIdx.x;
+	short curAction = d_action[0];
+	int cx = cstate[idx].x;
+	int cy = cstate[idx].y;
 
+	int nx = nstate[idx].x;
+	int ny = nstate[idx].y;
+
+	if (cx == nx && cy == ny && rewards[idx] != 0) {
+		return; // not update qtable
+	} else {
+		
+		// Find maximum next state expected value
+		float max = 0.0f;
+		for (short i = RIGHT; i <= TOP; ++i) {
+			int tableIdx = i * (DIMENSION * DIMENSION) + ny * DIMENSION + nx;
+			float val = d_qtable[tableIdx];
+			max = val > max ? val : max;
+		}
+
+		// update formula
+		int tableIdx = d_action[idx] * (DIMENSION * DIMENSION) + cy * DIMENSION + cx;
+		float curQval = d_qtable[tableIdx];
+		d_qtable[tableIdx] = curQval + gradientDec * (rewards[idx] + learningRate * max - curQval);
+	}
+	
 }
 
 __global__ void updateEpsilon() {
 	epsilon -= 0.1f;
 }
 
+// Implementations for host API
 void initAgents() {
 	dim3 block(1,1,1);
 	dim3 grid(1,1,1);
-
+	int actionMemSize = NUM_AGENT * sizeof(int);
+	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
 	agentsInit <<<grid, block>>> (d_action, NUM_AGENT);
 	cudaDeviceSynchronize();
 }
@@ -55,7 +113,11 @@ void initAgents() {
 void initQTable() {
 	dim3 block(1, 1, 1);
 	dim3 grid(1, 1, 1);
-	qtableInit << <grid, block >> > (d_qtable, DIMENSION * DIMENSION * NUM_ACTIONS);
+
+	// init qtable, agent action states
+	int qtableMemSize = DIMENSION * DIMENSION * NUM_ACTIONS * sizeof(float);
+	CHECK(cudaMalloc((void **)&d_qtable, qtableMemSize));
+	qtableInit <<<grid, block >>> (d_qtable, DIMENSION * DIMENSION * NUM_ACTIONS);
 	cudaDeviceSynchronize();
 }
 
@@ -76,8 +138,18 @@ float decEpsilon() {
 	return h_epsilon;
 }
 
-void updateActions(int2* cstate) {
+void takeAction(int2* cstate) {
+	curandState *randState;
+	CHECK(cudaMalloc((void **)&randState, sizeof(curandState)));
+
 	dim3 block(1, 1, 1);
 	dim3 grid(1, 1, 1);
-	actionsUpdate <<<grid, block >>> (cstate, d_action, NUM_AGENT);
+	setup_kernel <<<grid, block >>>(randState);
+	actionTaken <<<grid, block >>> (cstate, d_action, d_qtable, randState);
+}
+
+void updateAgents(int2* cstate, int2* nstate, float *rewards) {
+	dim3 block(1, 1, 1);
+	dim3 grid(1, 1, 1);
+	qtableUpdate <<<grid, block >>> (cstate, nstate, rewards, d_action, d_qtable);
 }
