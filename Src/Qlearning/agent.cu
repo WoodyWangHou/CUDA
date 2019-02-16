@@ -28,7 +28,7 @@ __global__ void setup_kernel(curandState *state) {
 	int idx = threadIdx.x + blockDim.x*blockIdx.x;
 	curand_init((unsigned long long)(clock() + idx), idx, 0, state);
 }
-// TODO: implement the following
+
 // Implementation:
 __global__ void agentsInit(short *d_agentsActions, int size) {
 	for (int i = 0; i < size; ++i) {
@@ -101,7 +101,7 @@ __global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *
 }
 
 __global__ void updateEpsilon() {
-	epsilon -= 0.01f;
+	epsilon -= 0.001f;
 }
 
 // Implementations for host API
