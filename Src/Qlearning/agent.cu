@@ -5,7 +5,6 @@
 /* University of California, San Diego
 /*************************************************************************/
 #include <cuda_runtime.h>
-#include <curand.h>
 #include <curand_kernel.h>
 #include <stdio.h>
 #include "agent.h"
@@ -13,6 +12,8 @@
 
 __device__ float *d_qtable;
 __device__ short *d_action;
+
+__device__ curandState *randState;
 
 // epsilon
 __device__ float epsilon;
@@ -25,7 +26,7 @@ __device__ float gradientDec;		// learning Rate alpha
 __global__ void setup_kernel(curandState *state) {
 
 	int idx = threadIdx.x + blockDim.x*blockIdx.x;
-	curand_init(1234, idx, 0, &state[idx]);
+	curand_init((unsigned long long)(clock() + idx), idx, 0, state);
 }
 // TODO: implement the following
 // Implementation:
@@ -48,10 +49,11 @@ __global__ void actionTaken(int2* cstate, short *d_action, float *d_qtable, cura
 	int y = cstate[idx].y;
 	short cand = RIGHT;
 	// gama greedy strategy:
-	float seed = curand_uniform(state + idx);
+	curandState localState = *state;
+	float seed = curand_uniform(&localState);
 
 	if (seed < epsilon) {
-		float actionSeed = curand_uniform(state + idx) * 4;
+		float actionSeed = curand_uniform(&localState) * 4;
 		cand = (short)actionSeed;
 	} else {
 		for (short i = RIGHT; i <= TOP; ++i) {
@@ -65,6 +67,7 @@ __global__ void actionTaken(int2* cstate, short *d_action, float *d_qtable, cura
 		}
 	}
 	d_action[idx] = cand;
+	*state = localState;
 }
 
 __global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *d_action, float *d_qtable) {
@@ -97,7 +100,7 @@ __global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *
 }
 
 __global__ void updateEpsilon() {
-	epsilon -= 0.1f;
+	epsilon -= 0.001f;
 }
 
 // Implementations for host API
@@ -105,8 +108,12 @@ void initAgents() {
 	dim3 block(1,1,1);
 	dim3 grid(1,1,1);
 	int actionMemSize = NUM_AGENT * sizeof(int);
+
 	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
+	CHECK(cudaMalloc((void **)&randState, sizeof(curandState)));
+
 	agentsInit <<<grid, block>>> (d_action, NUM_AGENT);
+	setup_kernel << <grid, block >> >(randState);
 	cudaDeviceSynchronize();
 }
 
@@ -139,12 +146,8 @@ float decEpsilon() {
 }
 
 void takeAction(int2* cstate) {
-	curandState *randState;
-	CHECK(cudaMalloc((void **)&randState, sizeof(curandState)));
-
 	dim3 block(1, 1, 1);
 	dim3 grid(1, 1, 1);
-	setup_kernel <<<grid, block >>>(randState);
 	actionTaken <<<grid, block >>> (cstate, d_action, d_qtable, randState);
 }
 
