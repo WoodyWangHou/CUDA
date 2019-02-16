@@ -57,13 +57,14 @@ __global__ void actionTaken(int2* cstate, short *d_action, float *d_qtable, cura
 		cand = (short)actionSeed;
 	} else {
 		for (short i = RIGHT; i <= TOP; ++i) {
-			if (x == 0 && i == LEFT) continue;
-			if (x == DIMENSION - 1 && i == RIGHT) continue;
-			if (y == 0 && i == TOP) continue;
-			if (y == DIMENSION - 1 && i == BOTTOM) continue;
+			//if (x == 0 && i == LEFT) continue;
+			//if (x == DIMENSION - 1 && i == RIGHT) continue;
+			//if (y == 0 && i == TOP) continue;
+			//if (y == DIMENSION - 1 && i == BOTTOM) continue;
 
 			int tableIdx = i * (DIMENSION * DIMENSION) + y * DIMENSION + x;
-			cand = d_qtable[tableIdx] > d_qtable[tableIdx] ? i : cand;
+			int candIdx = cand * (DIMENSION * DIMENSION) + y * DIMENSION + x;
+			cand = d_qtable[tableIdx] > d_qtable[candIdx] ? i : cand;
 		}
 	}
 	d_action[idx] = cand;
@@ -100,7 +101,7 @@ __global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *
 }
 
 __global__ void updateEpsilon() {
-	epsilon -= 0.001f;
+	epsilon -= 0.01f;
 }
 
 // Implementations for host API
@@ -132,8 +133,8 @@ void initGlobalVariables() {
 	float ep = 1.0;
 	CHECK(cudaMemcpyToSymbol(epsilon, &ep, sizeof(float)));
 
-	float lr = 0.1;
-	float gd = 0.2;
+	float lr = 0.5;
+	float gd = 0.5;
 	CHECK(cudaMemcpyToSymbol(learningRate, &lr, sizeof(float)));
 	CHECK(cudaMemcpyToSymbol(gradientDec, &gd, sizeof(float)));
 }
