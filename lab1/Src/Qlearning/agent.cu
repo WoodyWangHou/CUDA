@@ -102,6 +102,10 @@ __global__ void qtableUpdate(int2* cstate, int2* nstate, float *rewards, short *
 
 __global__ void updateEpsilon() {
 	epsilon -= 0.001f;
+	
+	if (epsilon < 0) {
+		epsilon = 0;
+	}
 }
 
 // Implementations for host API

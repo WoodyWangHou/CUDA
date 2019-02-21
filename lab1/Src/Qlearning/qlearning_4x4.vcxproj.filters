@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\common_def.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\util_fun.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\CMakeFiles\bb800de748da0c82fe52414ef65f9f4a\qlearning_4x4_intermediate_link.obj.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0131A0D8-F389-3A14-9641-1764B152B467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{00055C2A-524B-3EC6-8938-3D487462D72D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{77E7AA08-AD7D-3801-A4C2-EE888E53AE3F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3D976E7E-F0B2-3B7D-9569-EC67A4670A40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

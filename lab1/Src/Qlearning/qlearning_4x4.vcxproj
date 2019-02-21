@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F5AEA10F-CECB-393C-8346-467245E49772}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>qlearning_4x4</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qlearning_4x4.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">qlearning_4x4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qlearning_4x4.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">qlearning_4x4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">qlearning_4x4.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">qlearning_4x4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">qlearning_4x4.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">qlearning_4x4</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/freeglut.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Debug"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/glew64.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Debug"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart_static.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Debug/qlearning_4x4.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Debug/qlearning_4x4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/freeglut.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Release"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/glew64.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Release"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart_static.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Release/qlearning_4x4.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/Release/qlearning_4x4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/freeglut.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/MinSizeRel"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/glew64.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/MinSizeRel"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart_static.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/MinSizeRel/qlearning_4x4.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/MinSizeRel/qlearning_4x4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;BUILD_THIRDPARTY:BOOL=ON;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\Program Files\NVIDIA Corporation\NvToolsExt\include;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\inc;C:\Program Files\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/freeglut.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/RelWithDebInfo"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different "C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1/bin/win64/Release/glew64.dll" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/RelWithDebInfo"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart_static.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cuda.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\Win32\cudart.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\freeglut.lib;C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.1\common\lib\x64\glew64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvml.lib;C:\Program Files\NVIDIA Corporation\NvToolsExt\lib\x64\nvToolsExt64_1.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/RelWithDebInfo/qlearning_4x4.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/RelWithDebInfo/qlearning_4x4.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_main_qlearning.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/main_qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_main_qlearning.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/main_qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_main_qlearning.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/main_qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_main_qlearning.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/main_qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\main_qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_draw_env.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/draw_env.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_draw_env.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/draw_env.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_draw_env.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/draw_env.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_draw_env.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/draw_env.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearning.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearning.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearning.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearning.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearning.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_env_mine.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/env_mine.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_env_mine.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/env_mine.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_env_mine.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/env_mine.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_env_mine.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/env_mine.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearningImpl.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearningImpl.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearningImpl.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearningImpl.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearningImpl.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearningImpl.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_qlearningImpl.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/qlearningImpl.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_agent.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_agent.cu.obj.Debug.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/agent.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.Debug.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_agent.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_agent.cu.obj.Release.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/agent.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.Release.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_agent.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_agent.cu.obj.MinSizeRel.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/agent.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.MinSizeRel.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC (Device) object Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_generated_agent.cu.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+cd "C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)"
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)bin" -D build_configuration:STRING=$(ConfigurationName) -D "generated_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -D "generated_cubin_file:STRING=C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj.cubin.txt" -P "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//qlearning_4x4_generated_agent.cu.obj.RelWithDebInfo.cmake"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/agent.cu;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.RelWithDebInfo.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.cu;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\CMakeFiles\bb800de748da0c82fe52414ef65f9f4a\qlearning_4x4_intermediate_link.obj.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building NVCC intermediate link file Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -lnvToolExt -gencode arch=compute_50,code=sm_50 --cudart=shared -lineinfo -arch sm_50 -use_fast_math -m32 -ccbin "$(VCInstallDir)bin" -dlink "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -o "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj" -Xcompiler /MDd
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/CMakeFiles/bb800de748da0c82fe52414ef65f9f4a/qlearning_4x4_intermediate_link.obj.rule;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building NVCC intermediate link file Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -lnvToolExt -gencode arch=compute_50,code=sm_50 --cudart=shared -lineinfo -arch sm_50 -use_fast_math -m32 -ccbin "$(VCInstallDir)bin" -dlink "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -o "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj" -Xcompiler /MD
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/CMakeFiles/bb800de748da0c82fe52414ef65f9f4a/qlearning_4x4_intermediate_link.obj.rule;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building NVCC intermediate link file Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -lnvToolExt -gencode arch=compute_50,code=sm_50 --cudart=shared -lineinfo -arch sm_50 -use_fast_math -m32 -ccbin "$(VCInstallDir)bin" -dlink "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -o "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj" -Xcompiler /MD
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/CMakeFiles/bb800de748da0c82fe52414ef65f9f4a/qlearning_4x4_intermediate_link.obj.rule;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building NVCC intermediate link file Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -lnvToolExt -gencode arch=compute_50,code=sm_50 --cudart=shared -lineinfo -arch sm_50 -use_fast_math -m32 -ccbin "$(VCInstallDir)bin" -dlink "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_main_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_draw_env.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearning.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_env_mine.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_qlearningImpl.cu.obj" "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir//$(Configuration)/qlearning_4x4_generated_agent.cu.obj" -o "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/qlearning_4x4.dir/$(Configuration)/qlearning_4x4_intermediate_link.obj" -Xcompiler /MD
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/CMakeFiles/bb800de748da0c82fe52414ef65f9f4a/qlearning_4x4_intermediate_link.obj.rule;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" "-BC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" --check-stamp-file "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\FindCUDA\run_nvcc.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" "-BC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" --check-stamp-file "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\FindCUDA\run_nvcc.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" "-BC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" --check-stamp-file "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\FindCUDA\run_nvcc.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" "-BC:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1" --check-stamp-file "C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:/Users/wangh/Desktop/Master - UCSD/Courses/ECE 285/lab1/Src/Qlearning/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.13\Modules\FindCUDA\run_nvcc.cmake;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_agent.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_draw_env.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_env_mine.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_main_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearning.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.cmake.pre-gen;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\qlearning_4x4_generated_qlearningImpl.cu.obj.depend;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_main_qlearning.cu.obj" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_draw_env.cu.obj" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearning.cu.obj" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_env_mine.cu.obj" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_qlearningImpl.cu.obj" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_generated_agent.cu.obj" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\agent.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\common_def.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\draw_env.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\env_mine.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearning.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\qlearningImpl.h" />
+    <ClInclude Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\util_fun.h" />
+    <Object Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\Src\Qlearning\CMakeFiles\qlearning_4x4.dir\$(Configuration)\qlearning_4x4_intermediate_link.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\wangh\Desktop\Master - UCSD\Courses\ECE 285\lab1\ZERO_CHECK.vcxproj">
+      <Project>{D0607C08-3FE7-3D0A-A67B-0E1EC897134B}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
