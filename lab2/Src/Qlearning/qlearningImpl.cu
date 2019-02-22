@@ -8,7 +8,6 @@
 #include <helper_cuda.h>
 #include "agent.h"
 #include "qlearningImpl.h"
-#include "common_def.h"
 
 // Implemetation of required functions
 Agent *agents;
@@ -16,7 +15,7 @@ Agent *agents;
 void agent_init() {
 	// update global variable
 	agents = new Agent;
-	agents->init(NUM_AGENT);
+	agents->init();
 }
 
 void agent_clearaction() {

@@ -19,8 +19,6 @@
     }                                                                          \
 }
 
-#define DIMENSION 32
-
 enum Action {
 	RIGHT = 0,
 	BOTTOM = 1,
@@ -36,13 +34,18 @@ private:
 	// global Q table
 	// logically it is a 3d matrix
 	// each cell (x,y,action) represents Q(s, action)
-	volatile float* d_qtable;
+	// the mapping is:
+	// |(x1,y1,a1)||(x1,y1,a2)|(x1,y1,a3)|(x1,y1,a4)|(x2,y2,a1)...
+	float* d_qtable;
 
 	// Each agent needs to keep track of its own:
 	// 1. action
 	// 2. if it is alive (represented using value -1)
 	// this data structure is structure of arrays
 	short *d_action;
+
+	// alive status
+	bool *d_isAlive;
 
 	curandState *randState;
 	// epsilon
@@ -67,7 +70,7 @@ public:
 		cudaFree(epsilon);
 		cudaFree((void *)d_qtable);
 	}
-	void init(int numOfAgents);
+	void init();
 	void initAgents();
 	float decEpsilon();
 	void takeAction(int2* cstate);

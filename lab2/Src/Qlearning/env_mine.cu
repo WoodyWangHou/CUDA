@@ -57,7 +57,7 @@ void env_mineCls::init(int boardsize, int* board, int num_agent)
 
 	checkCudaErrors(cudaMalloc((void**)&d_reward, sizeof(float)*XCEIL(num_agent, 5)));
 
-	checkCudaErrors(cudaMemcpyAsync(d_board, board, sizeof(int)*m_board_height*m_board_height, cudaMemcpyHostToDevice));
+	checkCudaErrors(cudaMemcpyAsync(d_board, board, sizeof(int)*m_board_width*m_board_height, cudaMemcpyHostToDevice));
 };
 
 void env_mineCls::reset(int sid)
@@ -209,6 +209,9 @@ __global__ void env_step(int2* cstate, int2* nstate,
 		int reward = reward_updateboard(agent, board, board_width);
 
 		rewards[tid] = (reward & MINE) ? -1 : reward;
+	}
+	else {
+		rewards[tid] = -1;
 	}
 
 	nstate[tid] = agent;

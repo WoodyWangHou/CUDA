@@ -9,28 +9,54 @@
 #include <stdio.h>
 #include "agent.h"
 #include "common_def.h"
+#include "draw_env.h"
 
-// Helpers:
+#define BLOCK_SIZE 128
+
+// Helpers
+
+// return the action with maximum Q value
+__inline__ __device__ 
+short findMaxQValAction(float* d_qtable, int x, int y) {
+	short cand = RIGHT;
+	int startIdx = y * (BOARD_SIZE * NUM_ACTIONS) + x * NUM_ACTIONS;
+	#pragma unroll
+	for (short i = RIGHT + 1; i <= TOP; ++i) {
+		int candIdx = startIdx + cand;
+		int curIdx = startIdx + i;
+		float candQval = d_qtable[candIdx];
+		float curQVal = d_qtable[curIdx];
+		cand = curQVal > candQval ? i : cand;
+	}
+	return cand;
+}
 __global__ void setup_kernel(curandState *state) {
 	int idx = threadIdx.x + blockDim.x*blockIdx.x;
 	curand_init((unsigned long long)(clock() + idx), idx, 0, &state[idx]);
 }
 
-__global__ void agentsInit(short *d_agentsActions, int size) {
+__global__ void actionInit(short *d_agentsActions) {
 	int idx = threadIdx.x + blockDim.x * blockIdx.x;
 	d_agentsActions[idx] = 0;
 }
 
-__global__ void qtableInit(volatile float *d_qtable, int size) {
-	int idx = threadIdx.x + blockDim.x * blockIdx.x;
+__global__ void qtableInit(float *d_qtable) {
+	int iy = threadIdx.y + blockDim.y * blockIdx.y;
+	int ix = threadIdx.x + blockDim.x * blockIdx.x;
+	int idx = iy * BOARD_SIZE * NUM_ACTIONS + ix;
 	d_qtable[idx] = 0;
+}
+
+__global__ void aliveInit(bool *d_isAlive) {
+	int idx = threadIdx.x + blockDim.x * blockIdx.x;
+	d_isAlive[idx] = true;
 }
 
 // Implementation:
 __global__ void actionTaken(
 	int2* cstate, 
 	short *d_action, 
-	volatile float *d_qtable, 
+	float *d_qtable, 
 	curandState *state, 
 	float *ep) {
 	float epsilon = *ep;
@@ -44,14 +70,10 @@ __global__ void actionTaken(
 	float seed = curand_uniform(&localState);
 
 	if (seed < epsilon) {
-		float actionSeed = curand_uniform(&localState) * 4;
+		float actionSeed = curand_uniform(&localState) * NUM_ACTIONS;
 		cand = (short)actionSeed;
 	} else {
-		for (short i = RIGHT + 1; i <= TOP; ++i) {
-			int tableIdx = i * (DIMENSION * DIMENSION) + y * DIMENSION + x;
-			int candIdx = cand * (DIMENSION * DIMENSION) + y * DIMENSION + x;
-			cand = d_qtable[tableIdx] > d_qtable[candIdx] ? i : cand;
-		}
+		cand = findMaxQValAction(d_qtable, x, y);
 	}
 	d_action[idx] = cand;
 	state[idx] = localState;
@@ -61,8 +83,9 @@ __global__ void qtableUpdate(
 	int2* cstate, 
 	int2* nstate, 
 	float *rewards, 
+	bool *d_isAlive,
 	short *d_action, 
-	volatile float *d_qtable, 
+	float *d_qtable, 
 	float gradientDec,
 	float learningRate) {
 	int idx = threadIdx.x + blockDim.x * blockIdx.x;
@@ -73,20 +96,25 @@ __global__ void qtableUpdate(
 	int nx = nstate[idx].x;
 	int ny = nstate[idx].y;
 
-	if (cx == nx && cy == ny) return;
+	if (d_isAlive[idx]) {
+		float r = rewards[idx];
+		if (r != 0) {
+			d_isAlive[idx] = false;
+		}
 
-	// Find maximum next state expected value
-	int maxIdx = ny * DIMENSION + nx;
-	float max = d_qtable[maxIdx];
-	for (short i = RIGHT + 1; i <= TOP; ++i) {
-		int tableIdx = i * (DIMENSION * DIMENSION) + ny * DIMENSION + nx;
-		float val = d_qtable[tableIdx];
-		max = val > max ? val : max;
+		// Find maximum next state expected value
+		float max = 0;
+		// if agent is alive in next state, set the future expected return
+		if (d_isAlive[idx]) {
+			short maxAction = findMaxQValAction(d_qtable, nx, ny);
+			int maxIdx = ny * (BOARD_SIZE * NUM_ACTIONS) + nx * NUM_ACTIONS + maxAction;
+			max = d_qtable[maxIdx];
+		}
+
+		// update formula
+		int curIdx = cy * (BOARD_SIZE * NUM_ACTIONS) + cx * NUM_ACTIONS + curAction;
+		d_qtable[curIdx] += gradientDec * (r + learningRate * max - d_qtable[curIdx]);
 	}
-
-	// update formula
-	int tableIdx = d_action[idx] * (DIMENSION * DIMENSION) + cy * DIMENSION + cx;
-	d_qtable[tableIdx] += gradientDec * (rewards[idx] + learningRate * max - d_qtable[tableIdx]);
 }
 
 __global__ void updateEpsilon(float *epsilon) {
@@ -103,11 +131,13 @@ __global__ void epsilonInit(float *epsilon) {
 }
 
 // Implementations for host API
-void Agent::init(int numOfAgents) {
+void Agent::init() {
 	// update global variable
-	block = dim3(numOfAgents);
-	grid = dim3(1);
-	this->numOfAgents = numOfAgents;
+	int actualBlockSize = NUM_AGENT > BLOCK_SIZE ? BLOCK_SIZE : NUM_AGENT;
+	block = dim3(actualBlockSize);
+	grid = dim3((NUM_AGENT + block.x - 1) / block.x);
+	
+	this->numOfAgents = NUM_AGENT;
 	this->initGlobalVariables();
 	this->initAgents();
 	this->initQTable();
@@ -115,20 +145,29 @@ void Agent::init(int numOfAgents) {
 
 void Agent::initAgents() {
 	int actionMemSize = this->numOfAgents * sizeof(short);
+	int aliveMemSize = this->numOfAgents * sizeof(bool);
 
 	CHECK(cudaMalloc((void **)&d_action, actionMemSize));
+	CHECK(cudaMalloc((void **)&d_isAlive, aliveMemSize));
 	CHECK(cudaMalloc((void **)&randState, this->numOfAgents * sizeof(curandState)));
 
-	agentsInit <<<grid, block>>> (d_action, this->numOfAgents);
+	actionInit <<<grid, block>>> (d_action);
+	aliveInit <<<grid, block >>> (d_isAlive);
 	setup_kernel <<<grid, block >>>(randState);
 	cudaDeviceSynchronize();
 }
 
 void Agent::initQTable() {
 	// init qtable, agent action states
-	int qtableMemSize = DIMENSION * DIMENSION * NUM_ACTIONS * sizeof(float);
+	int qtableX = BOARD_SIZE * NUM_ACTIONS;
+	int qtableY = BOARD_SIZE;
+	int qtableMemSize = qtableX * qtableY * sizeof(float);
 	CHECK(cudaMalloc((void **)&d_qtable, qtableMemSize));
-	qtableInit <<<grid, block >>> (d_qtable, DIMENSION * DIMENSION * NUM_ACTIONS);
+	
+	int qy = 2;
+	dim3 qBlock(NUM_AGENT / qy, qy);
+	dim3 qGrid((qtableX + qBlock.x - 1) / qBlock.x, (qtableY + qBlock.y - 1) / qBlock.y);
+	qtableInit <<<qGrid, qBlock >>> (d_qtable);
 	cudaDeviceSynchronize();
 }
 
@@ -137,8 +176,8 @@ void Agent::initGlobalVariables() {
 	CHECK(cudaMalloc((void **)&epsilon, sizeof(float)));
 	epsilonInit <<<1, 1 >>> (epsilon);
 
-	this->learningRate = 0.20f;
-	this->gradientDec = 0.25f;
+	this->learningRate = 0.3f;
+	this->gradientDec = 0.5f;
 }
 
 float Agent::decEpsilon() {
@@ -153,5 +192,5 @@ void Agent::takeAction(int2* cstate) {
 }
 
 void Agent::updateAgents(int2* cstate, int2* nstate, float *rewards) {
-	qtableUpdate <<<grid, block >>> (cstate, nstate, rewards, d_action, d_qtable, gradientDec, learningRate);
+	qtableUpdate <<<grid, block >>> (cstate, nstate, rewards, d_isAlive, d_action, d_qtable, gradientDec, learningRate);
 }

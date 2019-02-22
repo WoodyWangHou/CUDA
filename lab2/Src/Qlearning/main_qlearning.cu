@@ -64,11 +64,8 @@ float prevtime;
 float curtime;
 float deltatime;
 ////////////////////////////////////////////////////////////////////////////////
-int fpsCount = 0;        // FPS count for averaging
-int fpsLimit = 1;        // FPS limit for sampling
 int g_Index = 0;
 float avgFPS = 0.0f;
-unsigned int frameCount = 0;
 unsigned int steps = 0;
 unsigned int episode = 0;
 unsigned int active_agent = 0;
@@ -201,18 +198,6 @@ bool initGL(int *argc, char **argv)
 
 void computeFPS()
 {
-	frameCount++;
-	fpsCount++;
-
-	if (fpsCount == fpsLimit)
-	{
-		avgFPS = 1.f / (sdkGetAverageTimerValue(&timer) / 1000.f);
-		fpsCount = 0;
-		fpsLimit = (int)MAX(avgFPS, 1.f);
-
-		sdkResetTimer(&timer);
-	}
-
 	char fps[512];
 	
 	sprintf(fps, "Lab 2: Qlearning: episode=%d (steps=%d), TA=%d (FA=%3.1f%%, AA=%3.1f%%)", episode, steps, 
