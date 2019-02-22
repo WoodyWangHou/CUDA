@@ -119,7 +119,7 @@ __global__ void qtableUpdate(
 
 __global__ void updateEpsilon(float *epsilon) {
 	float val = *epsilon;
-	(*epsilon) = val - 0.005f;
+	(*epsilon) = val - 0.002f;
 	
 	if (val < 0) {
 		(*epsilon) = 0;
