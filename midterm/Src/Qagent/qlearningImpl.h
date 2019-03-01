@@ -1,6 +1,6 @@
 /*************************************************************************
 /* ECE 285: GPU Programmming 2019 Winter quarter
-/* Author and Instructer: Cheolhong An
+/* Author and Instructer: Hou Wa
 /* Copyright 2019
 /* University of California, San Diego
 /*************************************************************************/
