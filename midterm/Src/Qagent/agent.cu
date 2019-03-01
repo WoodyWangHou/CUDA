@@ -9,9 +9,10 @@
 #include <stdio.h>
 #include "agent.h"
 
-#define BLOCK_SIZE 512
-#define BOARD_SIZE 46
+// Improvement: adjust grid and block size
+#define BLOCK_SIZE 128
 #define NUM_ACTIONS 4
+#define BOARD_SIZE 46
 #define NUM_AGENT 512
 
 // Helpers
@@ -71,8 +72,7 @@ __global__ void actionTaken(
 	float seed = curand_uniform(&localState);
 
 	if (seed < epsilon) {
-		float actionSeed = curand_uniform(&localState) * NUM_ACTIONS;
-		cand = (short)actionSeed;
+		cand = (short) (curand_uniform(&localState) * NUM_ACTIONS);
 	} else {
 		cand = findMaxQValAction(d_qtable, x, y);
 	}
@@ -97,16 +97,20 @@ __global__ void qtableUpdate(
 	int nx = nstate[idx].x;
 	int ny = nstate[idx].y;
 
+	// Improvement: use binar opreation to replace conditional clause
 	if (d_isAlive[idx]) {
+		// improvement: remove conditional clause
 		float r = rewards[idx];
-		if (r != 0) {
-			d_isAlive[idx] = false;
-		}
+		d_isAlive[idx] = (r == 0);
+
+		// Improvment: reduce memory access
+		bool isAlive = (r == 0);
 
 		// Find maximum next state expected value
 		float max = 0;
+
 		// if agent is alive in next state, set the future expected return
-		if (d_isAlive[idx]) {
+		if (isAlive) {
 			short maxAction = findMaxQValAction(d_qtable, nx, ny);
 			int maxIdx = ny * (BOARD_SIZE * NUM_ACTIONS) + nx * NUM_ACTIONS + maxAction;
 			max = d_qtable[maxIdx];
@@ -114,16 +118,25 @@ __global__ void qtableUpdate(
 
 		// update formula
 		int curIdx = cy * (BOARD_SIZE * NUM_ACTIONS) + cx * NUM_ACTIONS + curAction;
-		d_qtable[curIdx] += gradientDec * (r + learningRate * max - d_qtable[curIdx]);
+		float delta = gradientDec * (r + learningRate * max - d_qtable[curIdx]);
+		d_qtable[curIdx] = d_qtable[curIdx] + delta;
 	}
 }
 
+// Improvement: adjust epsilon decay rate, allow more learning time when epsilon is small
 __global__ void updateEpsilon(float *epsilon) {
 	float val = *epsilon;
-	(*epsilon) = val - 0.005f; // 0.003
 	
-	if (val < 0.01) {
-		(*epsilon) = 0.01f;
+	// Improvement: adjust epsilon in stages, allow more training time in low epsilon
+	// reason: correct path will have enough time to propagate to further positions before hitting a mine
+	if (val < 0.001) {
+		(*epsilon) = 0;
+	} else if (val < 0.01) {
+		(*epsilon) = val - 0.001;
+	} else if (val < 0.1) {
+		(*epsilon) = val - 0.002f;
+	} else {
+		(*epsilon) = val - 0.003f;
 	}
 }
 
@@ -155,7 +168,6 @@ void Agent::initAgents() {
 	actionInit <<<grid, block>>> (d_action);
 	aliveInit <<<grid, block >>> (d_isAlive);
 	setup_kernel <<<grid, block >>>(randState);
-	cudaDeviceSynchronize();
 }
 
 void Agent::initQTable() {
@@ -169,7 +181,6 @@ void Agent::initQTable() {
 	dim3 qBlock(NUM_AGENT / qy, qy);
 	dim3 qGrid((qtableX + qBlock.x - 1) / qBlock.x, (qtableY + qBlock.y - 1) / qBlock.y);
 	qtableInit <<<qGrid, qBlock >>> (d_qtable);
-	cudaDeviceSynchronize();
 }
 
 void Agent::initGlobalVariables() {
@@ -177,8 +188,8 @@ void Agent::initGlobalVariables() {
 	CHECK(cudaMalloc((void **)&epsilon, sizeof(float)));
 	epsilonInit <<<1, 1 >>> (epsilon);
 
-	this->learningRate = 0.35f; // 0.25
-	this->gradientDec = 0.55f; //0.45
+	this->learningRate = 0.32f;
+	this->gradientDec = 0.55f;
 }
 
 float Agent::decEpsilon() {
