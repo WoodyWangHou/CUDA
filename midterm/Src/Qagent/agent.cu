@@ -136,11 +136,7 @@ __global__ void updateEpsilon(float *epsilon) {
 	} else if (val < 0.1) {
 		(*epsilon) = val - 0.002f;
 	} else {
-<<<<<<< HEAD
 		(*epsilon) = val - 0.005f;
-=======
-		(*epsilon) = val - 0.003f;
->>>>>>> 77bab38f17c3310f62d0415aeb7c25e8f3f515a0
 	}
 }
 
