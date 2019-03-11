@@ -4,7 +4,7 @@
 /* Copyright 2019
 /* University of California, San Diego
 /*************************************************************************/
-#define NUM_AGENT 128 //(256)
+#define NUM_AGENT 512 // 128
 #define NUM_ACTIONS 4
 #define LOG2_AGENT_STRIDE 7 // threadblock size (32*8)
 #define ALIVE_CODE16 0x8000

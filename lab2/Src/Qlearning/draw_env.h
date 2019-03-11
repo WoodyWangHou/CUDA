@@ -4,7 +4,7 @@
 #include <sstream>
 
 
-#define  BOARD_SIZE 32 //128
+#define  BOARD_SIZE 46 //32
 #define  MINE_COUNT (BOARD_SIZE*3)
 #define  AGENT_CODE 0x2
 #define  AGENT_MASK 0xfffffffd
