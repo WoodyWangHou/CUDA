@@ -21,32 +21,20 @@ namespace grid {
 		// for particle counts
 		int *count;
 		int* cellId;
-	public:
 		void init();
+	public:
+		Grid() {
+			this->init();
+		}
 		void sortKeys();
 		void countParticles();
 		void verify();
 		std::string toString();
 		~Grid() {
-			if (count) {
-				delete count;
-				count = nullptr;
-			}
-
-			if (cellId) {
-				delete cellId;
-				cellId = nullptr;
-			}
-
-			if (keys) {
-				delete keys;
-				keys = nullptr;
-			}
-
-			if (value) {
-				delete value;
-				value = nullptr;
-			}
+			free(count);
+			free(cellId);
+			free(keys);
+			free(value);
 		}
 	};
 }

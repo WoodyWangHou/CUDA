@@ -13,7 +13,7 @@ namespace grid {
 
 	__global__ void pRadixSort(int *d_keys, int *d_value, int numOfRuns) {
 		__shared__ int s_keys_values[NUMBER_OF_PARTICLES][2]; // store runs of sort
-		int idx = threadIdx.x & 31;
+		int idx = threadIdx.x;
 		// load value into shared mem, coalesced
 		s_keys_values[idx][1] = d_keys[idx];
 		s_keys_values[idx][0] = d_value[idx];
@@ -31,7 +31,7 @@ namespace grid {
 
 			// get prefix sums for one
 			#pragma unroll
-			for (int lane = 0; lane < 32; lane *= 2) {
+			for (int lane = 1; lane <= 32; lane *= 2) {
 				unsigned int tmp = __shfl_up(prefixOne, lane);
 				if (idx >= lane) {
 					prefixOne += tmp;
@@ -40,7 +40,7 @@ namespace grid {
 
 			// get prefix sums for zero
 			#pragma unroll
-			for (int lane = 0; lane < 32; lane *= 2) {
+			for (int lane = 1; lane <= 32; lane *= 2) {
 				unsigned int tmp = __shfl_up(prefixZero, lane);
 				if (idx >= lane) {
 					prefixZero += tmp;
@@ -53,8 +53,8 @@ namespace grid {
 				s_keys_values[prefixZero][0] = curVal;
 			} else {
 				// current bit is 1
-				int laneId = blockDim.x % 32;
-				int totalZero = __shfl(prefixZero, laneId, blockDim.x % 32);
+				int laneId = 31 % blockDim.x;
+				int totalZero = __shfl(prefixZero, laneId, blockDim.x);
 				s_keys_values[prefixOne + totalZero][1] = curKey;
 				s_keys_values[prefixOne + totalZero][0] = curVal;
 			}
@@ -72,10 +72,10 @@ namespace grid {
 	}
 
 	void Grid::init() {
-		this->count = new int[NUMBER_OF_KEYS];
-		this->cellId = new int[NUMBER_OF_KEYS];
-		this->keys = new int[NUMBER_OF_PARTICLES];
-		this->value = new int[NUMBER_OF_PARTICLES];
+		this->count = (int *)malloc(sizeof(int) * NUMBER_OF_KEYS);
+		this->cellId = (int *)malloc(sizeof(int) * NUMBER_OF_KEYS);
+		this->keys = (int *)malloc(sizeof(int) * NUMBER_OF_PARTICLES);
+		this->value = (int *)malloc(sizeof(int) * NUMBER_OF_PARTICLES);
 
 		for (int i = 0; i < NUMBER_OF_PARTICLES; ++i) {
 			this->keys[i] = std::rand() % NUMBER_OF_KEYS;
@@ -92,7 +92,9 @@ namespace grid {
 		CHECK(cudaMalloc((void **)&d_value, sizeof(int) * NUMBER_OF_PARTICLES));
 		CHECK(cudaMemcpy(d_keys, this->keys, sizeof(int) * NUMBER_OF_PARTICLES, cudaMemcpyHostToDevice));
 		CHECK(cudaMemcpy(d_value, this->value, sizeof(int) * NUMBER_OF_PARTICLES, cudaMemcpyHostToDevice));
+
 		pRadixSort <<<1, block>>> (d_keys, d_value, NUMBER_OF_BITS);
+
 		CHECK(cudaMemcpy(this->keys, d_keys, sizeof(int) * NUMBER_OF_PARTICLES, cudaMemcpyDeviceToHost));
 		CHECK(cudaMemcpy(this->value, d_value, sizeof(int) * NUMBER_OF_PARTICLES, cudaMemcpyDeviceToHost));
 	}

@@ -15,9 +15,6 @@ int main(int argc, char* argv) {
 	using namespace grid;
 	Grid grid;
 
-	// init particles and keys
-	grid.init();
-
 	// print particles and keys before sorting and counting
 	std::cout << grid.toString() << std::endl;
 
