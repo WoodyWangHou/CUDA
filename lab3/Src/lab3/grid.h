@@ -4,21 +4,29 @@
 *	This file defines the data structure for grid
 */
 
+#pragma once
 namespace grid {
-	const int NUMBER_OF_PARTICLES;
-	const int NUMBER_OF_KEYS;
+	const int NUMBER_OF_BITS = 4;
+	const int NUMBER_OF_PARTICLES = 32;
+	const int NUMBER_OF_KEYS = 16;
+
 	class Grid {
+#include <string>
 	private:
-		int *count;
-		// both 32 long, keys represents the 
+		// both 32 long
+		// for radix sort
 		int *keys;
 		int *value;
+
+		// for particle counts
+		int *count;
+		int* cellId;
 	public:
 		void init();
 		void sortKeys();
 		void countParticles();
 		void verify();
-		const char* toString();
+		std::string toString();
 		~Grid() {
 			if (count) {
 				delete count;
@@ -30,15 +38,19 @@ namespace grid {
 				cellId = nullptr;
 			}
 
-			if (particleId) {
-				delete particleId;
-				particleId = nullptr;
+			if (keys) {
+				delete keys;
+				keys = nullptr;
+			}
+
+			if (value) {
+				delete value;
+				value = nullptr;
 			}
 		}
 	};
 }
 
-#pragma once
 #include <curand_kernel.h>
 #define CHECK(call)                                                            \
 {                                                                              \

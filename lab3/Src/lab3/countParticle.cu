@@ -5,25 +5,21 @@
 /* University of California, San Diego
 /*************************************************************************/
 #include <iostream>
+#include <string>
 #include "grid.h"
 
 const int SUCCESS = 0;
 
-void showGrid(Grid &grid) {
-	std::cout << "Grid Cell Ids and Particles: " << std::endl;
-	std::cout << grid.toString() << std::endl;
-}
-
 // main function
 int main(int argc, char* argv) {
-	using namespace grid::Grid;
+	using namespace grid;
 	Grid grid;
 
 	// init particles and keys
 	grid.init();
 
 	// print particles and keys before sorting and counting
-	showGrid(grid);
+	std::cout << grid.toString() << std::endl;
 
 	// sort keys
 	grid.sortKeys();
@@ -32,11 +28,12 @@ int main(int argc, char* argv) {
 	grid.countParticles();
 
 	// print after sorting and counting
-	showGrid(grid);
+	std::cout << grid.toString() << std::endl;
 
 	// verify the final result
 	grid.verify();
 
+	system("pause");
 	return SUCCESS;
 }
 
