@@ -16,6 +16,7 @@ int main(int argc, char* argv) {
 	Grid grid;
 
 	// print particles and keys before sorting and counting
+	std::cout << "Grid before sorting: " << std::endl;
 	std::cout << grid.toString() << std::endl;
 
 	// sort keys
@@ -25,6 +26,7 @@ int main(int argc, char* argv) {
 	grid.countParticles();
 
 	// print after sorting and counting
+	std::cout << "Grid after radix sorting: " << std::endl;
 	std::cout << grid.toString() << std::endl;
 
 	// verify the final result
