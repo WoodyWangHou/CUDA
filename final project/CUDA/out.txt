@@ -1,0 +1,264 @@
+Start
+Start Loading Training Images:
+100 Images loaded200 Images loaded300 Images loaded400 Images loaded500 Images loaded600 Images loaded700 Images loaded800 Images loaded900 Images loaded1000 Images loaded1100 Images loaded1200 Images loaded1300 Images loaded1400 Images loaded1500 Images loaded
+Complete
+================================================================================
+Start Loading Test Images:
+100 Images loaded200 Images loaded300 Images loaded400 Images loaded500 Images loaded600 Images loaded700 Images loaded800 Images loaded900 Images loaded1000 Images loaded1100 Images loaded1200 Images loaded1300 Images loaded
+Complete
+Relu layer init finished
+Relu layer init finished
+Relu layer init finished
+softmax layer init finished
+Batch progress: 1500/1500
+Cost after 0 epoch: 5.66736
+Epoch Training time is: 4.388 sec
+=====================================================
+Batch progress: 1500/1500
+Cost after 1 epoch: 5.72333
+Epoch Training time is: 4.189 sec
+=====================================================
+Batch progress: 1500/1500
+Cost after 2 epoch: 5.87202
+Epoch Training time is: 4.123 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 3 epoch: 6.18678
+Correct Predicts after 3 epoch: 0/1500
+Epoch Training time is: 4.182 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 4 epoch: 5.97921
+Correct Predicts after 4 epoch: 0/1500
+Epoch Training time is: 4.191 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 5 epoch: 5.73088
+Correct Predicts after 5 epoch: 0/1500
+Epoch Training time is: 6.367 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 6 epoch: 6.00957
+Correct Predicts after 6 epoch: 0/1500
+Epoch Training time is: 5.076 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 7 epoch: 5.79088
+Correct Predicts after 7 epoch: 0/1500
+Epoch Training time is: 3.902 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 8 epoch: 5.74621
+Correct Predicts after 8 epoch: 0/1500
+Epoch Training time is: 3.809 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 9 epoch: 5.70795
+Correct Predicts after 9 epoch: 0/1500
+Epoch Training time is: 3.803 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 10 epoch: 5.94043
+Correct Predicts after 10 epoch: 0/1500
+Epoch Training time is: 3.823 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 11 epoch: 5.78141
+Correct Predicts after 11 epoch: 0/1500
+Epoch Training time is: 3.789 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 12 epoch: 5.69738
+Correct Predicts after 12 epoch: 0/1500
+Epoch Training time is: 3.775 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 13 epoch: 6.02274
+Correct Predicts after 13 epoch: 0/1500
+Epoch Training time is: 3.801 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 14 epoch: 6.10728
+Correct Predicts after 14 epoch: 0/1500
+Epoch Training time is: 3.824 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 15 epoch: 5.65836
+Correct Predicts after 15 epoch: 0/1500
+Epoch Training time is: 4.215 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 16 epoch: 5.84201
+Correct Predicts after 16 epoch: 0/1500
+Epoch Training time is: 3.787 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 17 epoch: 5.77732
+Correct Predicts after 17 epoch: 0/1500
+Epoch Training time is: 3.88 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 18 epoch: 5.55018
+Correct Predicts after 18 epoch: 0/1500
+Epoch Training time is: 4.264 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 19 epoch: 6.09362
+Correct Predicts after 19 epoch: 0/1500
+Epoch Training time is: 3.777 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 20 epoch: 5.74604
+Correct Predicts after 20 epoch: 0/1500
+Epoch Training time is: 3.846 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 21 epoch: 5.99824
+Correct Predicts after 21 epoch: 0/1500
+Epoch Training time is: 4.075 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 22 epoch: 5.8105
+Correct Predicts after 22 epoch: 0/1500
+Epoch Training time is: 4.061 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 23 epoch: 5.84697
+Correct Predicts after 23 epoch: 0/1500
+Epoch Training time is: 4.102 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 24 epoch: 5.88042
+Correct Predicts after 24 epoch: 0/1500
+Epoch Training time is: 3.916 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 25 epoch: 5.82786
+Correct Predicts after 25 epoch: 0/1500
+Epoch Training time is: 3.986 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 26 epoch: 6.09912
+Correct Predicts after 26 epoch: 0/1500
+Epoch Training time is: 3.966 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 27 epoch: 6.03705
+Correct Predicts after 27 epoch: 0/1500
+Epoch Training time is: 4.06 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 28 epoch: 5.6421
+Correct Predicts after 28 epoch: 0/1500
+Epoch Training time is: 4.035 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 29 epoch: 5.77852
+Correct Predicts after 29 epoch: 0/1500
+Epoch Training time is: 4.095 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 30 epoch: 5.98848
+Correct Predicts after 30 epoch: 0/1500
+Epoch Training time is: 3.975 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 31 epoch: 6.10024
+Correct Predicts after 31 epoch: 0/1500
+Epoch Training time is: 4.033 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 32 epoch: 5.95454
+Correct Predicts after 32 epoch: 0/1500
+Epoch Training time is: 4.042 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 33 epoch: 5.75456
+Correct Predicts after 33 epoch: 0/1500
+Epoch Training time is: 4.212 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 34 epoch: 5.98597
+Correct Predicts after 34 epoch: 0/1500
+Epoch Training time is: 4.005 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 35 epoch: 6.00354
+Correct Predicts after 35 epoch: 0/1500
+Epoch Training time is: 4.324 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 36 epoch: 5.81183
+Correct Predicts after 36 epoch: 0/1500
+Epoch Training time is: 4.47 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 37 epoch: 5.92799
+Correct Predicts after 37 epoch: 0/1500
+Epoch Training time is: 4.212 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 38 epoch: 5.66095
+Correct Predicts after 38 epoch: 0/1500
+Epoch Training time is: 4.161 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 39 epoch: 6.09737
+Correct Predicts after 39 epoch: 0/1500
+Epoch Training time is: 3.986 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 40 epoch: 5.68861
+Correct Predicts after 40 epoch: 0/1500
+Epoch Training time is: 4.168 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 41 epoch: 5.83258
+Correct Predicts after 41 epoch: 0/1500
+Epoch Training time is: 4.049 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 42 epoch: 5.60567
+Correct Predicts after 42 epoch: 0/1500
+Epoch Training time is: 4.135 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 43 epoch: 6.15097
+Correct Predicts after 43 epoch: 0/1500
+Epoch Training time is: 3.952 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 44 epoch: 5.76806
+Correct Predicts after 44 epoch: 0/1500
+Epoch Training time is: 4.033 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 45 epoch: 5.86717
+Correct Predicts after 45 epoch: 0/1500
+Epoch Training time is: 4.117 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 46 epoch: 5.86069
+Correct Predicts after 46 epoch: 0/1500
+Epoch Training time is: 3.894 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 47 epoch: 5.71024
+Correct Predicts after 47 epoch: 0/1500
+Epoch Training time is: 3.867 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 48 epoch: 5.67418
+Correct Predicts after 48 epoch: 0/1500
+Epoch Training time is: 3.962 sec
+=====================================================
+Batch progress: 100/1500Batch progress: 200/1500Batch progress: 300/1500Batch progress: 400/1500Batch progress: 500/1500Batch progress: 600/1500Batch progress: 700/1500Batch progress: 800/1500Batch progress: 900/1500Batch progress: 1000/1500Batch progress: 1100/1500Batch progress: 1200/1500Batch progress: 1300/1500Batch progress: 1400/1500Batch progress: 1500/1500
+Cost after 49 epoch: 5.85648
+Correct Predicts after 49 epoch: 0/1500
+Epoch Training time is: 4.368 sec
+=====================================================
+Training Complete
+=====================================================
+Final cost on test: 1.81383
+Predict accuracy on test: 0/1306
+Evaluate complete
